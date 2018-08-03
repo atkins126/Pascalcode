@@ -1,0 +1,34 @@
+Const nmax=10;
+Var A:array[1..nmax,1..nmax] of integer;
+    i,j,n,m,imin:byte;
+Begin
+    Repeat
+     write('Введите количество строк 1<=N<=',nmax,': ');
+     readln(n);
+    Until n in [1..nmax];
+    Repeat
+     write('Введите количество столбцов 1<=M<=',nmax,': ');
+     readln(m);
+    Until m in [1..nmax];
+    For i:=1 to n do
+    Begin
+      For j:=1 to m do
+      Begin
+        A[i,j]:=random(31)-5;
+        write(A[i,j]:4);
+      End;
+      writeln;
+    End;
+    imin:=0;i:=1;
+    While (i<=n)and(imin=0) do
+    Begin
+      j:=1;
+      While (j<=m)and(A[i,j]>0) do
+       inc(j);
+      if (j-1=m)and(A[i,m]>0) then imin:=i;
+      inc(i);
+    End;
+    if imin=0 then writeln('Нету строк только из положительных элементов')
+     else writeln('Индекс первой строки только из положительных элементов = ',imin);
+    readln;
+End.

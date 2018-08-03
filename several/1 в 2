@@ -1,0 +1,27 @@
+uses crt;
+const n=5;
+var v:array[1..n*n]of integer;
+    a:array[1..n,1..n] of integer;
+    i,j:integer;
+begin
+clrscr;
+randomize;
+writeln('Massiv V:');
+for i:=1 to n*n do
+  begin
+   v[i]:=random(50);
+   write(v[i]:4);
+  end;
+writeln;
+writeln('Matrica A:');
+for i:=1 to n do
+  begin
+    for j:=1 to n do
+       begin
+        a[i,j]:=v[j+n*(i-1)];
+        write(a[i,j]:4);
+       end;
+    writeln;
+  end;
+readln
+end.

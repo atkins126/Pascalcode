@@ -1,0 +1,81 @@
+library lib1;
+interface
+var fp:text;
+procedure creator;
+implementation
+procedure creator;
+var x:array[1..100] of real;
+var i,n:integer;
+begin
+read(n);
+ Assign(fp, 'my.txt');
+Rewrite(fp);
+for i :=1 to n do 
+begin
+ x[i]:=Random(-50,50);
+ Writeln(x[i]);
+ Writeln(fp, x[i]);
+end;
+Close(fp);
+end;
+end.
+
+library lib2;
+interface 
+var fp:text;
+procedure chten;
+implementation
+procedure chten;
+var i,n:integer;
+var sum, kol:real;
+var sr:real;
+x:array[1..100] of real;
+begin
+read(n);
+Assign(fp,'my.txt');
+reset(fp);
+i:=1;
+sum:=0;
+kol:=0;
+while not eof(fp) do 
+begin
+readln(fp,x[i]);
+inc(i);
+end;
+close(fp);
+for i:=1 to n do 
+begin
+kol:=kol+1;
+sum:=sum+x[i];
+write(x[i],' ');
+sr:=sum/kol;
+if x[i]<0 then 
+begin
+x[i]:=x[i]+sr;
+end;
+end;
+for i:=1 to n do 
+begin
+writeln(x[i], ' ');
+end;
+Writeln(sum);
+writeln(kol);
+Writeln('седнеее',sr);
+end;
+end.
+
+{
+Создать новую папку и разработать в папке систему, в которую входят программа (Prog) и 2 библиотеки: Bibl1, Bibl2 с процедурами.  
+В библиотеке Bibl1 определить процедуры B1PR1 
+В библиотеке Bibl2 определить процедуры B2PR1, B2PR2, B2PR3
+В процедуре B1PR1 выполнить запись N данных в файл от Random. N – это целая величина.
+В процедуре B2PR1 выполнить чтение данных из файла в одномерный массив и вычислить среднее значение массива
+В процедуре B2PR2 увеличить отрицательные числа на среднее значение
+В процедуре B2PR3 выдать одномерный массив на экран
+В программе Prog подключить 2 библиотеки. Вызвать процедуры и выдать на экран результаты}
+{$reference lib1.dll}
+{$reference lib2.dll}
+begin
+creator;
+chten;
+end.

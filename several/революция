@@ -1,0 +1,13 @@
+var s,sc,sp: string;
+    i,j: byte;
+begin
+write('s='); readln(s);
+write('i='); readln(i);
+sc:=copy(s,i,length(s)-i+1);
+delete(s,i,length(s)-i+1);
+sp:='';
+for j:=1 to length(sc) do
+    sp:=sc[j]+sp;
+s:=s+sp;
+write('s=',s);
+end.

@@ -1,0 +1,54 @@
+Unit Modul;//имя модуля
+interface{список того, что внутри }
+type
+F=file of real;{переменнные для модуля} 
+var
+FP:F;
+min:real;
+function func(x,y:real):real;   // Вычисл по формуле
+procedure proc1(var FP:F);      // Сохранение файла
+procedure proc2(var FP:F);      // Чтение файла
+{процедупы и функции} 
+
+
+implementation{как все дорлжно работать (инструкция)} 
+
+function func(x,y:real):real;
+begin
+func:=(x+y)/(y+1)-(x*y-12)/(34+x);
+end;
+procedure proc1(var FP:F);
+var
+x,y,xn,xk,H:real;
+RF:real;
+i,N:integer;
+begin
+rewrite(FP);
+read(y,xn,xk,H);
+N:=round(abs((xk-xn)/H));
+x:=xn;
+for i:=1 to N do begin
+RF:=func(x,y);
+write(FP,RF);
+x:=x+H;
+end;
+close(FP);
+end;
+
+procedure proc2(var FP:F);
+var
+a:array[1..100]of real;
+i:integer;
+begin
+writeln;
+reset(FP);
+i:=1;min:=+1000000;
+while not eof(FP) do begin
+read(FP,a[i]);
+write(a[i]:8:3);
+if a[i]<min then min:=a[i];
+i:=i+1;
+end;
+close(FP);
+end;
+end.

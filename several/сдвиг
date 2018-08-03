@@ -1,0 +1,97 @@
+const max=10;
+type mtr=array[1..max,1..max] of integer;
+procedure vvod(var a:mtr;var k,m:byte);
+var i,j:byte;
+begin
+repeat
+write('Количество строк k=');
+readln(k);
+until k in [1..max];
+repeat
+write('Количество столбцов m=');
+readln(m);
+until m in [1..max];
+for i:=1 to k do
+for j:=1 to m do
+a[i,j]:=10*i+j;
+end;
+procedure vyvod(a:mtr;k,m:byte;s:string);
+var i,j:byte;
+begin
+writeln(s);
+for i:=1 to k do
+ begin
+  for j:=1 to m do
+  write(a[i,j]:4);
+  writeln;
+ end;
+end;
+procedure sdv_stlb(a:mtr;var a1:mtr;k,m:byte;var n,n1:byte);
+var i,j,p,s:byte;
+begin
+a1:=a;
+write('На сколько позиций сдвинуть? n=');
+readln(n);
+n1:=n mod m;
+for i:=1 to k do
+for j:=1 to n1 do
+ begin
+  s:=a1[i,m];
+  for p:=m downto 2 do
+  a1[i,p]:=a1[i,p-1];
+  a1[i,1]:=s;
+ end;
+end;
+procedure sdv_str(a:mtr;var a1:mtr;k,m:byte;var n,n1:byte);
+var i,j,p,s:byte;
+begin
+a1:=a;
+write('На сколько позиций сдвинуть? n=');
+readln(n);
+n1:=n mod k;
+for j:=1 to m do
+for i:=1 to n1 do
+ begin
+  s:=a1[k,j];
+  for p:=k downto 2 do
+  a1[p,j]:=a1[p-1,j];
+  a1[1,j]:=s;
+ end;
+end;
+ 
+var a,a1:mtr;
+    k,m,n,n1:byte;
+    w:char;
+    s:string;
+begin
+vvod(a,k,m);
+repeat
+writeln('Направление сдвига');
+writeln('1-вправо');
+writeln('2-вниз');
+writeln('другое - выход');
+readln(w);
+case w of
+'1':begin
+    
+    vyvod(a,k,m,'Исходная матрица');
+    sdv_stlb(a,a1,k,m,n,n1);
+    str(n,s);
+    s:='Сдвиг столбцов вправо на '+s+' позиций';
+    vyvod(a1,k,m,s);
+    readln;
+    end;
+'2':begin
+    
+    vyvod(a,k,m,'Исходная матрица');
+    sdv_str(a,a1,k,m,n,n1);
+    str(n,s);
+    s:='Сдвиг строк вниз на '+s+' позиций';
+    vyvod(a1,k,m,s);
+    readln;
+    end;
+else exit;
+end;
+until not(w in['1','2']);
+ 
+end.

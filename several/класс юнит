@@ -1,0 +1,55 @@
+{выдать сведения о транспорте на экран:  
+ ФИО водителя, грузоподъемность, вместимость, } 
+ unit transp;
+ type avto=class
+ private
+ cat:string;
+ color:string;
+ public
+ constructor Create(ct:string; col:string);
+ begin
+ cat:=ct;
+ color:=col;
+ end;
+ procedure transp;
+ begin
+ Write('категория ',' ', cat,'цвет:',' ', color );
+ end;
+ end;
+ sport=class(avto) 
+ private
+ nazv:string;
+ public constructor Create(ct:string; col:string;nz:string);
+ begin
+ inherited Create(ct, col);
+ nazv:=nz;
+ end;
+ procedure transp;
+ begin
+ inherited transp;
+ write('название',' ',nazv);
+  end;
+  end;
+  Parm=class(sport)
+  private
+  fio:string;
+  gruz:real;
+  vmest:integer;
+  public constructor create(ct:string; col:string;nz:string; f:string; gr:real; vm:integer);
+  begin
+  inherited Create(ct, col, nz);
+  fio:=F;
+  vmest:=vm;
+  GRUZ:=gr;
+  end;
+  procedure transp;
+  begin
+  inherited transp;
+  Write('Фио водителя',' ', fio, ' ',' Грузоподъемность ', gruz,' ', 'Вместительность ', vmest);
+  end;
+  
+  end;// класс 
+   var m:Parm;
+ end.
+ 
+ 

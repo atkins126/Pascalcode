@@ -1,0 +1,16 @@
+
+Var x, n, m :integer;
+
+begin
+writeln('Введите n ');
+readln(n);
+x:=1;
+writeln('Натуральные числа, квадрат которых не превышает ', n, ':');
+while x*x <= n do
+begin
+write (x, ' ');
+x:=x+1
+end;
+writeln;
+writeln('Первое натуральное число, квадрат которого больше ', n, ' =', x);
+end.

@@ -1,0 +1,91 @@
+unit geom;
+Uses GraphABC;
+type
+ Chet = class
+ private
+ n:string;
+ x,y,x1,y1,l,tx,ty:integer;
+ p,pol,s:real;
+  public
+  constructor Create(name:string;coorx,coory,coorx1,coory1,txx,tyy: integer);
+ begin
+ n:=name;
+  x:=coorx;
+  y:=coory;
+  x1:=coorx1;
+  y1:=coory1;
+  tx:=txx;
+  ty:=tyy
+ end;
+ procedure chetyr(coorx,coory,coorx1,coory1:integer);
+   var
+     l:integer;
+     p,pol,s:real;
+   begin
+     Setpencolor(clBlack);
+     SetBrushColor(clRandom);
+     Rectangle(x,y,x1,y1);
+     l:=sqr(y1-y)+sqr(x1-x);//длина стороны
+     p:=l*4;//периметр
+     pol:=p/2;//полупериметр
+     s:=sqrt(power((pol-l),4));//площадь
+     write('Длина стороны: ',l,' Периметр: ',p,' Полупериметр: ',pol,' Площадь: ',s);
+     writeln;
+   end;
+ end;     
+ Romb=class(Chet)
+    private
+       diag,diag1: integer;
+    public
+       constructor Create(name:string;coorx,coory,coorx1,coory1,txx,tyy,d,d1: integer);
+          begin
+             inherited Create(name,coorx,coory,coorx1,coory1,txx,tyy);
+                diag:=d;
+                diag1:=d1;
+         end;
+       end;
+ Kvadrat = class(Chet)
+    private
+       opis,vpis: real;
+    public
+       constructor Create(name:string;coorx,coory,coorx1,coory1,txx,tyy: integer;r,rad:real); 
+          begin
+             inherited Create(name,coorx,coory,coorx1,coory1,txx,tyy);
+                opis:=r;
+                vpis:=rad;
+          end; 
+   end; // 
+ Parallel=class(Romb)
+  private
+    vys:integer;
+  public
+     constructor Create(name:string;coorx,coory,coorx1,coory1,txx,tyy,d,d1,h:integer);
+          begin
+             inherited Create(name,coorx,coory,coorx1,coory1,txx,tyy,d,d1);
+                 vys:=h;
+           end;
+end;  
+    Pryamoug= class(Kvadrat)
+    private
+       opis,vpis: real;
+    public
+      constructor Create(name:string;coorx,coory,coorx1,coory1,txx,tyy: integer;r,rad:real); 
+          begin
+             inherited Create(name,coorx,coory,coorx1,coory1,txx,tyy,r,rad);
+                opis:=r;
+                vpis:=rad;
+          end;
+   end; 
+Trapec=class(Kvadrat)
+    private
+      vysot: integer;
+    public
+       constructor Create(name:string;coorx,coory,coorx1,coory1,txx,tyy,h: integer;r,rad:real); 
+          begin
+             inherited Create(name,coorx,coory,coorx1,coory1,txx,tyy,r,rad);
+                vysot:=h;
+          end;
+    end;     
+  end.
+
+

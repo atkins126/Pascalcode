@@ -1,0 +1,39 @@
+{
+В процедуре №1 создать файл целого типа INT1 из n элементов (n≥10). 
+В процедуре № 2 создать новый файл INT2, в который включить только последние 5 элементов из файла
+INT1.
+}
+type fp=file of real;
+var x,x1:fp;
+type y=array[1..5] of real;
+var t,d:y;
+procedure sozd(var x:fp);
+var i:integer;
+var r:integer;
+begin
+Randomize;
+assign(x,'my.dat');
+Rewrite(x);
+for i:=1 to 10 do
+begin
+r:=Random(10);
+Write(x,r);
+end;
+Close(x);
+end;
+procedure chten(var x:fp; var t:y);
+var i,j:integer;
+begin
+Reset(x);
+for i:=1 to 5 do read(x,t[i]);
+close(x);
+for i:=5 downto 1 do write(t[i],' ');
+Assign(x1,'my2.dat');
+Rewrite(x1);
+for i:=5 downto 1 do write(x1,t[i]);
+Close(x1);
+end;
+begin
+sozd(x);
+chten(x,t);
+end.

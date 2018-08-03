@@ -1,0 +1,36 @@
+unit my;
+type
+Planet=class
+private
+nazv:string;
+orb:real;
+public constructor Create(n:string;o:real); 
+begin
+nazv:=n;
+orb:=o;
+end;
+procedure Print;
+begin
+Write('название','  ',nazv,' ','орбита ', ' ', orb );
+end;
+end;
+luna=class(Planet)
+private
+ atm:string;
+ dav:real;
+ public constructor Create(n:string;o:real;a:string;d:real);
+ begin
+ inherited create(n,o);
+ atm:=a;
+ dav:=d;
+ end;
+ procedure print;
+ begin
+ inherited print;
+ Write('атмосфера ', '  ',' ',atm,' ','давленине',' ',dav);
+ end;
+ end;
+ var p:Planet;
+ var l:luna;
+ end.
+ 

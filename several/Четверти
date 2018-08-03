@@ -1,0 +1,11 @@
+var x,y:integer;
+begin
+readln (x,y);
+if (x>0) and (y>0) then writeln ('Точка лежит в первой четверти');
+if (x<0) and (y>0) then writeln ('Точка лежит во второй четверти');
+if (x<0) and (y<0) then writeln ('Точка лежит в третьей четверти');
+if (x>0) and (y<0) then writeln ('Точка лежит в четвертой четверти');
+if (x=0) and (y=0) then writeln ('Точка лежит на пересечении осей') else
+if x=0 then writeln ('Точка лежит на оси ординат') else if y=0 then writeln ('Точка лежит на оси абсцисс');
+readln;
+end. 

@@ -1,0 +1,27 @@
+{
+Разработать приложение «Предприятие». 
+Выдать на экран сведения: название предприятия, 
+специализация (фабрика, завод, мастерская, гараж), 
+число рабочих, число служащих, средняя зарплата.
+}
+unit my1;
+type fapric=class
+private
+nazv:string;
+spec:string;
+chislorab:integer;
+chislosl:integer;
+public constructor create(n:string; sp:string; chislor:integer; chislos:integer);
+begin
+nazv:=n;
+spec:=sp;
+chislorab:=chislor ;
+chislosl:=chislos;
+end;
+procedure print;
+begin
+write('название', nazv,' ', ' специальность ', spec,' ', ' чиисло рабочих', chislorab, '', 'служащих', ' ',  chislosl);
+end;
+end;
+var f:fapric;
+end.

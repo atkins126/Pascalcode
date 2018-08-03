@@ -1,0 +1,9 @@
+var a, n:integer;
+begin
+  write('Введите число:');
+  ReadLn(n);
+  a :=  trunc( sqrt(n));
+  if N = a*a  
+     then WriteLn('является квадратом числа ',a)
+     else WriteLn('не является квадратом');
+end.

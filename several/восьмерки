@@ -1,0 +1,14 @@
+
+var n,o,p: integer;
+begin
+write('n=');
+readln(n);
+o:=0;
+while n>=1 do
+      begin
+      inc(p);
+      if n mod 10=8 then o:=p;
+      n:=n div 10;
+      end;
+writeln(o);
+end.

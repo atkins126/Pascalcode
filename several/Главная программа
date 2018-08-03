@@ -1,0 +1,10 @@
+{$reference 'my.dll'}
+var m,n:integer;
+begin
+massiv(a);
+raz(a);
+dva(a);
+tri(a);
+chetire(a);
+five(a);
+end.

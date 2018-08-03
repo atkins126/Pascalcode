@@ -1,0 +1,46 @@
+  uses crt;
+     const rz=[' ',',','.',';',':','?','!'];//Г°Г*Г§Г¤ГҐГ«ГЁГІГҐГ«ГЁ Г±Г«Г®Гў
+     type str=array[1..30] of string;
+ 
+Procedure Split(var s:string; var output:str; var index:integer);
+    var i:integer;
+Begin
+    index:=1;
+ 
+    For i:=length(s) downto 2 do
+        if ((s[i] in rz) and (s[i-1] in rz)) then delete(s,i,1);
+ 
+    For i:=1 to length(s) do
+        if (s[i] in rz) then
+        begin
+            inc(index);
+            output[index]:='';
+        end
+            else output[index]:=output[index]+s[i];
+ 
+End;
+//------------------------------------------------------------------------------
+    var i,size,j:integer;
+        A:str;
+        b:boolean;
+        s:string;
+begin
+  Write('String: ');
+  ReadLn(s);
+ 
+  Split(s,A,size);
+ 
+  for i:=1 to size do
+  Begin
+    b:=true;
+    for j:=1 to length(A[i]) do
+        if (A[i][j] = 'a') then
+        Begin
+            b:=false;
+            break;
+        End;
+    if (b) then write(A[i],' ');
+  End;
+ 
+  Readln;
+end.

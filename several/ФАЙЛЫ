@@ -1,0 +1,24 @@
+var f,h: text;
+    i: integer;
+    sp,s: string;
+begin
+assign(f,'in.txt');
+assign(h,'out.txt');
+reset(f);
+rewrite(h);
+sp:='';
+while not (eof(f)) do
+      begin
+      readln(f,s);
+      repeat
+      sp:=sp+copy(s,1,60-length(sp));
+      delete(s,1,length(sp));
+      inc(i);
+      writeln(h,'(',i:3,') ',sp);
+      if length(sp)=60 then sp:='';
+      until length(s)=0;
+      end;
+writeln('Вывод страниц текста завершен');
+close(f);
+close(h);
+end.

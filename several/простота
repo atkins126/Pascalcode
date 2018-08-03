@@ -1,0 +1,8 @@
+var  a,b,c,d:integer;
+begin
+a:=123;
+b:=a   div 100 mod 100;//1
+c:= a div 10 mod 10;//2
+d:=a mod 100 mod 10;//3;
+writeln(d,c,b);
+end.

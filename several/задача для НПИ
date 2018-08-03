@@ -1,0 +1,108 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, StrUtils;
+
+type
+  TForm1 = class(TForm)
+    Edit1: TEdit;
+    Memo1: TMemo;
+    Button1: TButton;
+    Label1: TLabel;
+    Edit2: TEdit;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+//Функция растягивающая заданную строку s на длину Len
+//путём добавления пробелов к уже имеющимся
+Function FormatStr(s:String; Len:Integer):String;
+Var
+  i : Integer;
+Begin
+  If Length(s)<Len Then
+  If Pos(' ',s)<>0 Then
+  Begin
+    //Добавим к каждому пробелу дополнительный символ
+    //Пока строка не станет длиннее или равной заданной
+    While Length(s)<Len Do
+    s:=StringReplace(s,' ',' '+Char(1),[rfReplaceAll]);
+
+    i:=1;
+    While Length(s)>Len Do
+    //Будем удалять лишние символы
+    Begin
+      i:=PosEx(' ',s,i);
+      If i<>0 Then
+      Begin
+        If s[i+1]=Char(1) Then
+        Begin
+          Delete(s,i+1,1);
+        End;
+        Inc(i);
+      End Else i:=1
+    End;
+
+    //Заменяем дополнительный символ на пробел
+    s:=StringReplace(s,Char(1),' ',[rfReplaceAll]);
+  End;
+  Result:=s;
+End;
+
+procedure TForm1.Button1Click(Sender: TObject);
+Var
+  k,i,j,x : Integer;
+  s : String;
+begin
+  s:=Edit1.Text; //Исходная строка
+  k:=StrToIntDef(Edit2.Text,50); //По сколько разбивать (50 - по умолчанию)
+
+  Memo1.Lines.Clear; //Очистим Memo
+
+  //Заменим двойные пробелы в строке - одинарными
+  While Pos('  ',s)<>0 Do s:=StringReplace(s,'  ',' ',[rfReplaceAll]);
+
+  x:=1;
+  j:=0;
+  Repeat
+    If s[x]=' ' Then
+    Begin
+      Inc(x); //Если первый символ новой строки пробел - пропускаем
+      If x>Length(s) Then Break; //За пределами строки
+    End;
+
+    Repeat
+      i:=j-1;
+      j:=PosEx(' ',s,j+1);
+    Until (j=0) Or ((j-x+1-1)>k);
+
+    If j=0 Then j:=Length(s); //Если последний раз пробела не найдено - до конца строки
+
+    If s[j]=' ' Then Dec(j); //Последний символ пробел - не берём
+
+    If ((i>x) And ((j-x+1)>k)) Then j:=i; //Ранее пробелы находились - возвр. на пред найденную позицию
+
+    If (j-x+1)>k Then
+    ShowMessage('Слишком длинное слово. Не могу форматировать по '+IntToStr(k)+#13+
+    Copy(s,x,j-x+1));
+
+    Memo1.Lines.Add(FormatStr(Copy(s,x,j-x+1),k));
+    Inc(j); //Начальная позиция следующего поиска
+    x:=j;   //Начальная позиция следующей строки
+  Until (j>Length(s));
+end;
+
+end.

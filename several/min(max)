@@ -1,0 +1,37 @@
+var
+    a: Array[Byte, Byte] Of ShortInt;
+    b: Array[0..1, Byte] Of Byte;
+    i, j, n: Byte;
+begin
+    Randomize;
+    repeat
+        Write('Input n='); ReadLn(n);
+    until (n > 0);
+    for j := 0 to n - 1 do
+    begin
+        b[0, j] := 0;
+        b[1, j] := 0;
+    end;
+    for i := 0 to n - 1 do
+        for j := 0 to n - 1 do
+        begin
+            a[i, j] := Random(199) - 99;
+            if (a[i, j] > a[i, b[0, i]])
+            then
+                b[0, i] := j;
+            if (a[i, j] < a[b[1, j], j])
+            then
+                b[1, j] := i;
+        end;
+    for i := 0 to n - 1 do
+    begin
+        for j := 0 to n - 1 do
+            Write(a[i, j]:4);
+        WriteLn(' | ', a[i, b[0, i]]:4);
+    end;
+    for j := 0 to n - 1 do
+        Write('----');
+    WriteLn;
+    for j := 0 to n - 1 do
+        Write(a[b[1, j], j]:4);
+end.

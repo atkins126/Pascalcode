@@ -1,0 +1,34 @@
+unit chisla;
+INTERFACE
+type mx=array[1..4] of integer;
+PROCEDURE RAZ(VAR A:integer; VAR B:integer; VAR MAX:integer);
+procedure dva( var a:integer; VAR B:integer; var c:integer;   var max2:integer);
+procedure three(var x:mx; var max3:integer);
+IMPLEMENTATION
+var a,b,max:integer;
+var x:mx;
+PROCEDURE RAZ(VAR A:integer; VAR B:integer; VAR MAX:integer);
+BEGIN
+READ(A,B);
+IF A>B THEN max:=a
+ELSE max:=b;
+WriteLN(MAX);
+End;
+procedure dva( var a:integer; VAR B:integer; var c:integer;   var max2:integer);
+begin
+read(a,b,c);
+IF (A>B) or(a>c)  THEN max2:=a
+ELSE if (b>a)and(b>c) then max2:=b
+else if (c>a) and(c>b)  then max2:=c;
+WriteLN(MAX2);
+end;
+procedure three(var x:mx; var max3:integer);
+var i:integer;
+begin
+Readln(x[1],x[2],x[3],x[4]);
+Max3:=-32678;
+for i:=1 to 4 do
+if x[i]> Max3 then Max3:=x[i];
+writeln('Max=',Max3);
+end;
+end.

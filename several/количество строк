@@ -1,0 +1,17 @@
+var
+  s, s1: string;
+  i: integer;
+begin
+writeln ('Текст: ');
+readln (s);
+writeln ('Подстрока: ');
+readln (s1);
+i:=0;
+while pos(s1, s)>0 do
+begin
+inc (i);
+delete (s, pos(s1, s), length(s1));
+end;
+writeln (i);
+readln;
+end.

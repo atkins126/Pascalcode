@@ -1,0 +1,11 @@
+unit my;
+interface
+var s3:string;
+procedure four (s3:string);
+implementation
+procedure four (s3:string);
+begin
+s3:='работает пройедура four из модуля my';
+writeln(s3);
+end;
+end.

@@ -1,0 +1,32 @@
+uses crt;
+const n=10;
+var a:array[1..n] of integer;
+i,k,l,z,j:integer;
+yes:boolean;
+begin
+randomize;
+writeln('Osushestvit sdvig vlevo? (1-yes/0-no)');
+read(z);
+if z=1 then yes:=true else yes:=false;
+for i:=1 to n do
+    begin
+    a[i]:=random(50)-10;
+    write(a[i],' ');
+    end;
+writeln;
+if yes then begin
+k:=a[1];
+for i := 2 to n do
+  a[i-1] := a[i];
+a[n]:=k;
+for i:=1 to n do write(a[i],' ');
+end
+else
+if not yes then begin
+k:=a[n];
+for i := n-1 downto 1 do
+  a[i+1] := a[i];
+a[1]:=k;
+for i:=1 to n do write(a[i],' ');
+end;
+end.

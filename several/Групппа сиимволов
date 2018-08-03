@@ -1,0 +1,20 @@
+PROGRAM Stroki;
+Uses Crt;
+Const
+ znak : string[10]='1234567890';
+Var
+ stroka : string[80];
+ gruppa : string[80];
+ N:integer;
+BEGIN
+ clrscr;
+ S:=0;
+ Read (stroka) ;
+ N:=Length (stroka) ;
+  For i:=1 to N Do BEGIN
+   K:=Pos(stroka[i],znak);
+    If k>0 Then BEGIN
+     gruppa:=gruppa+stroka[i];
+    END
+readkey;
+end.

@@ -1,0 +1,19 @@
+var
+  s: string;
+  i,j,k,ks: integer;
+  buf: string;
+ 
+begin
+  writeln('Введите строку: ');
+  readln(s);
+  s:=s+' ';
+  for i := 1 to length(s) do
+    if s[i] <> ' ' then buf := buf + s[i] else begin
+      for j := 1 to length(buf) do
+        if (buf[j] = 'А') or (buf[j] = 'A')  then inc(k);  {это первая буква А считает количество зашлавных а в слове на русском, а вторая на английском}
+      if k = 3 then inc(ks);
+      k:=0;
+      buf:='';
+    end;
+  writeln('Слов: ',ks);  
+end.

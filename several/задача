@@ -1,0 +1,15 @@
+VAR M, K, i, X :Integer;
+BEGIN
+M := 478;
+K := 755;
+I:=2;
+X := M;
+while(I<=k) do
+begin
+X := (X * M) mod 1000;
+X := (X mod 1000 - X mod 100) div 100;
+i:=i+1;
+end;
+WriteLn(X);
+end.
+

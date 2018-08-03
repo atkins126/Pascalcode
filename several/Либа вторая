@@ -1,0 +1,8 @@
+Library lib2;
+var s1:string;
+procedure dva(var s1:string);
+begin
+s1:='работает пройедура dva из бибдиотеки lib2';
+Writeln(s1);
+end;
+end. 

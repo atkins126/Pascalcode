@@ -1,0 +1,10 @@
+USES chisla;
+BEGIN
+var x:mx;
+var max3:integer;
+var a:integer;
+var b,c,max,max2:integer;
+RAZ(a,b,max);
+dva(a,b,c,max2);
+three(x,max3);
+END.

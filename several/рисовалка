@@ -1,0 +1,38 @@
+{Разработать событийно-управляемую программу, в которой рисовать овал
+ желтого цвета при нажатии на клавишу «1», 
+ прямоугольник зеленого цвета при нажатии на клавишу «2» и
+ стирать эти фигуры при перемещении мыши}
+ uses GraphAbc;
+ procedure MouseDown(x,y,mb:integer);
+begin
+MoveTo(x,y); (* установка пера в заданную точку*)
+end;
+   procedure Mousemove(x,y,mb:integer);
+  begin
+  if mb=1 then 
+ begin
+ rectangle(x,y,50,50);
+ setpencolor(clYellow);
+ SetBrushColor(clYellow);
+   end;
+   if mb=2 then
+   begin
+   Circle(x,y,200);
+   SetPenColor(clGreen);
+   SetBrushColor(clGreen);
+   end;
+ if  mb=0  then  
+ begin
+    LineTo(x,y);
+    Rectangle(x,y,50,50);  
+    SetPenColor(clWhite);
+    LineTo(x,x);
+    Circle(x,x,200);
+    SetPenColor(clWhite);
+    end;
+
+  end;
+ begin
+ OnMouseDown:=MouseDown;
+ OnMouseMove:=MouseMove;
+  end.

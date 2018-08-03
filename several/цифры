@@ -1,0 +1,25 @@
+Program dectoroman;
+uses crt;
+const rom: array[1..13] of string[2]=('I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'CM', 'M');
+ dec: array[1..13] of word=(1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000);
+var n: word;
+ s: string;
+ i: byte;
+begin
+ clrscr;
+ write('Введите число в десятичной системе счисления: ');
+ readln(n);
+ s:=' ';
+ i:=13;
+ while n<>0 do
+ begin
+ while n>=dec[i] do
+ begin
+ n:=n-dec[i];
+ s:=s+rom[i];
+ end;
+ i:=i-1;
+ end;
+ writeln('Число в римской системе счисления: ',s);
+ readln;
+end.

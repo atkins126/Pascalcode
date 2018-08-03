@@ -1,0 +1,32 @@
+var
+ aMass: array[1..10,1..10] of integer;
+ i, j, n, m: integer;
+begin
+ Writeln('Vvedite NxM');
+ readln(n,m);
+  for i:= 1 to n do
+   begin
+   for j:= 1 to m do
+    readln(aMass[j,i]);
+      end;
+      Writeln('Uchod Array');
+       for i:= 1 to n do
+        begin
+         writeln;
+          for j:= 1 to m do
+           Write(aMass[i,j],' ');
+        end;
+         for i:= 1 to n do
+          begin
+            for j:= 1 to m do
+             if (j=i)  and (aMass[j,i] < 0 ) then aMass[j,i]:=(amass[i,j]*aMass[i,j]);
+             end;
+             writeln;
+             writeln;
+               for i:= 1 to n do
+                begin
+                  writeln;
+                   for j:= 1 to m do
+                    Write(aMass[i,j],' ');
+                end;
+end.

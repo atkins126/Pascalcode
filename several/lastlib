@@ -1,0 +1,59 @@
+{
+Задание №2 Разработать в папке D:\ZAD систему, в которую входят программа (Prog), 1 библиотека (Bibl1) и 1 модуль (Mod1). 	В Bibl1 определены процедуры B1PR1, B1PR2, B1PR3. В модуле Mod1 определены процедуры MProc1 и MProc2.
+В процедуре B1PR1 выполнить запись данных в файл от Random.
+В процедуре B1PR2 выполнить чтение данных из файла в одномерный массив.
+В процедуре B1PR3 выполнить поиск минимального данного среди всех данных, прочитанных из файла.
+В процедуре MProc1 вычислить среднее значение данных, прочитанных из файла.
+В процедуре MProc2 выдать на экран данные, прочитанные из файла.
+В программе Prog подключить модуль и библиотеку. Вызвать процедуры и выдать на экран полученные среднее значение и минимум.
+}
+Library mylib;
+var fp:text;
+type mx=array[1..100] of real;
+var x:mx;
+procedure sozd (var fp:text);
+begin
+var i,r:integer;
+randomize;
+assign(fp,'my.txt');
+reWrite(fp);
+for i:=1 to 10 do
+begin
+r:=random(100);
+Writeln(fp,r);
+end; 
+Close(fp);
+end;
+procedure chten(var fp:text; var x:mx);
+var i:integer;
+begin
+Assign(fp,'my.txt');
+Reset(fp);
+i:=1;
+while not eof(fp) do
+begin
+readln(fp,x[i]);
+inc(i);
+end;
+Close(fp);
+end;
+procedure poisk( var fp:text;var x:mx);
+var j,i:integer;
+var min:real;
+begin
+Assign(fp,'my.txt');
+Reset(fp);
+i:=1;
+min:=1000;
+while not eof(fp) do
+begin
+readln(fp,x[i]);
+if x[i]<min then min:=x[i];
+i:=i+1;
+end;
+Writeln;
+writeln('min',min);
+Close(fp);
+end;
+
+end.

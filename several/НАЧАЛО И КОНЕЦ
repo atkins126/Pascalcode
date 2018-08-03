@@ -1,0 +1,19 @@
+uses crt;
+var s,s1:string;
+    i,k:integer;
+begin
+writeln('Введите строку, состоящую из русских слов,');
+writeln('набранных заглавными буквами и разделенных пробелами(одним или несколькими)');
+readln(s);
+s:=s+' ';
+s1:='';
+k:=0;
+for i:=1 to length(s) do
+if s[i]<>' ' then s1:=s1+s[i]
+else
+ begin
+  if s1[1]=s1[length(s1)] then inc(k);
+  s1:='';
+ end;
+write('Количество слов, которые начинаются и заканчиваются одной и той же буквой=',k)
+end.

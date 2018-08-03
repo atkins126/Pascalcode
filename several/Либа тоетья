@@ -1,0 +1,8 @@
+Library lib3;
+var s3:string;
+procedure three( var s2:string);
+begin
+s2:='работает пройедура tree из бибдиотеки lib3';
+Writeln(s2);
+end;
+end.

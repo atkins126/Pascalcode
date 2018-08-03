@@ -1,0 +1,8 @@
+Library Lib1;
+var s:string;
+procedure raz(var s:string);
+begin
+s:='работает пройедура raz из бибдиотеки lib1';
+Writeln(s);
+end;
+end.

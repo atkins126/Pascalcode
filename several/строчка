@@ -1,0 +1,12 @@
+var
+s :string[10]; 
+k,i :integer; 
+begin
+readln(s); 
+while i<length(s) do //до тех пор, пока i меньше длины строки
+begin
+inc(i); 
+if s[i]='5' then inc(k); //если i-ый символ "5", то увелич. k
+end;
+writeln('Количество вхождений =',k); //вывод k
+end.

@@ -1,0 +1,36 @@
+var s,s1,mtext:string;
+var fp:text;
+var fp1:text;
+procedure creator(var fp:text; var s:string );
+begin
+s:='строка ';
+Rewrite(fp,'my.txt');
+write(fp,s);
+close(fp);
+writeln('создан');
+end;
+procedure chten( var fp:text; var s1:string);
+var i:integer;
+begin
+reset(fp);
+while not eof(fp) do 
+begin
+readln(fp,s1);
+end;
+close(fp);
+//Writeln(s1);// вывод строки 
+for i:=1 to Length(s1) do
+begin
+s1[i]:=UpCase(s1[i]);
+end;
+Writeln('заглавными ', s1);
+Rewrite(fp1,'my1.txt');
+writeln(fp1,s1);
+Close(fp1)
+end; 
+begin
+assign(fp,'my.txt');
+Assign(fp1,'my1.txt');
+creator(fp,s);
+chten(fp,s1);
+end.

@@ -1,0 +1,6 @@
+{$reference lib.dll}
+begin
+var s:string;
+var zn:char;
+poisk(s, zn);
+end.

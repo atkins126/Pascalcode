@@ -1,0 +1,15 @@
+procedure poisk( var s:string; var k:integer);
+var i:integer;
+begin
+readln(s);
+for  i:=1 to Length(s) do
+begin
+ if s[i]='9' then inc(k);
+ end;
+ writeln(k);
+end;
+var s:string;
+var k:integer;
+begin
+poisk(s,k);
+end.

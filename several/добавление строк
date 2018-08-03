@@ -1,0 +1,44 @@
+//Задание №18.  Даны два текстовых файла с именами Name1 и Name2. 
+//Добавить в конец файла Name1 содержимое файла Name2. 
+var i,n:integer;
+var fp,fp1:Text;
+var s,s1:string;
+var x:array[1..10]of string;
+procedure sozd(var s:string);
+begin
+s:='Name0';
+s1:='Name00';
+Writeln('как называется файл ');
+AssignFile(fp,s);
+Rewrite(fp);
+for var I:=1 to 10 do
+begin
+Writeln(fp, 'строка ');
+end;
+CloseFile(fp);
+Writeln('файл'+s+'создан');
+end;
+procedure chten(var s1:string);
+begin
+s1:='Name00';
+AssignFile(fp,s1);
+reset(fp);
+for var i:=1 to 10 do
+begin
+Readln(fp,x[i]);
+//Writeln(x[i]);
+end;
+CloseFile(fp);
+Assign(fp,s);
+Append(fp);
+for var I:=1 to 10 do
+begin
+Writeln(fp,x[i]);
+end;
+CloseFile(fp);
+end;
+begin
+sozd(s);
+sozd(s1);
+chten(s1);
+end.

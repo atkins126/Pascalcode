@@ -1,0 +1,41 @@
+type mx=array[1..100,1..100] of integer;
+var x,a,b,c,d:mx;
+var summa:integer;
+procedure vvod( var x:mx);
+var i,j,n,m:integer;
+begin
+read(n,m);
+Randomize;
+for I:=1 to n do
+for j:=1 to m do
+begin
+x[i,j]:=Random(100);
+end;
+for i:=1 to n do 
+begin
+for J:=1 to m do 
+begin
+write(x[i,j],' ');
+end;
+writeln;
+end;
+end;
+
+procedure sumo( var y:mx);
+var i,j,n,m:integer;
+begin
+read(n,m);
+ summa:=0;
+       for i:=1 to n do
+        for j:=1 to m do
+            begin
+            read(y[i,j]);
+             if (i=j) then summa:=summa+x[i,j];
+                         end;
+           writeln('sum=',summa);
+end;
+begin
+vvod(x);
+
+sumo(x);
+end.

@@ -1,0 +1,17 @@
+var
+  S: string;
+  i: byte;
+  
+begin
+  write('Введите текст: ');
+  readln(S);
+  i := 0;
+  while i < Length(s) do begin
+    inc(i); //увеличиваем номер символа в строке на 1
+    if s[i] in ['0'..'9'] then begin //если i-й элемент - цифра
+      delete(S, i, 1); //то удаляем его
+      dec(i) //и уменьшаем номер на 1
+    end;
+  end;
+  writeln('Результат: ', S);
+end.

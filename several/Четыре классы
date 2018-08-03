@@ -1,0 +1,83 @@
+{
+
+название дерева, 
+порода дерева (хвойная, лиственная декоративная,
+ лиственная фруктовая), свойства древесины (твердая, мягкая, мягкая пористая, плотная, вязкая),
+ зона произрастания (Сибирь, Юг, Север, средняя полоса, Дальний Восток). Базовый класс – «Дерево», 
+ производные от него классы (потомки): «Хвойные», «Лиственные», «Фруктовые».
+ Классу «хвойные» добавить поле: прочность древесины. 
+Классу «лиственные» добавить поля: цвет древесины, изготовление мебели (да, нет).
+ Классу «фруктовые» добавить поля: месяц сбора фруктов, урожайность.
+}
+unit my;
+type  
+tree=class
+private
+nazv:string;
+poroda:string;
+drevesina:string;
+zona:string;
+public constructor create(n:string;p:string;d:string;z:string);
+begin
+nazv:=n;
+poroda:=p;
+drevesina:=d;
+zona:=z;
+end;
+procedure print;
+begin
+write('назване',' ',' ',nazv,' ',' ',' порода', ' ',poroda,' ',' ',' древесина',' ', drevesina, ' ',' ', 'ареал ', ' ', zona);
+end;
+end;// класс
+hv=class(tree) 
+private
+prochnost:real;
+public constructor create(n:string;p:string;d:string;z:string; pr:real);
+begin
+inherited create(n,p,d,z);
+prochnost:=pr;
+end;
+procedure print;
+begin
+inherited print;
+write('прочность ствола в единицах','', prochnost);
+end;
+end;// класс
+listv=class(tree)
+private 
+color:string;
+meb:boolean;
+public constructor create(n:string;p:string;d:string;z:string; c:string; m:boolean);
+begin
+inherited create(n,p,d,z);
+color:=c;
+meb:=m;
+end;
+procedure print;
+begin
+inherited print;
+write('цвет',' ',color, ' ','мебель', ' ',meb );
+end;
+end;// class
+fruct=class(tree)
+private
+mes:string;
+urog:real;
+public constructor create(n:string;p:string;d:string;z:string;m:string; u:real);
+begin
+inherited create(n,p,d,z);
+mes:=m;
+urog:=u;
+end;
+procedure print;
+begin
+inherited print;
+write('Месяц сбора ', ' ',mes,'',' ', 'урожайность',' ',urog);
+end;
+end;// calss
+var t:tree;
+var h:hv;
+var l:listv;
+var f:fruct;
+end.
+ 

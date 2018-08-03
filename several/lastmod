@@ -1,0 +1,49 @@
+unit ny;
+interface
+type my=array[1..100] of real;
+var y:my;
+procedure sred( var y:my);
+procedure pokaz( var y:my);
+implementation
+procedure sred( var y:my);
+var j,i:integer;
+var min:real;
+var s,k:Real;
+var sr:real;
+var fp:text;
+begin
+Assign(fp,'my.txt');
+Reset(fp);
+i:=1;
+k:=0;
+s:=0;
+while not eof(fp) do
+begin
+readln(fp,y[i]);
+K:=k+1;
+s:=s+y[i];
+i:=i+1;
+end;
+Writeln;
+writeln(s);
+writeln(k);
+sr:=s/k;
+writeln(sr:0:3);
+Close(fp);
+end;
+procedure pokaz( var y:my);
+var j,i:integer;
+var fp:text;
+begin
+Assign(fp,'my.txt');
+Reset(fp);
+i:=1;
+while not eof(fp) do
+begin
+readln(fp,y[i]);
+write(y[i],' ');
+i:=i+1;
+end;
+
+end;
+end.

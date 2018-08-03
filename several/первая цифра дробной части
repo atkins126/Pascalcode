@@ -1,0 +1,8 @@
+var d:byte;
+    x:real;
+begin
+write('x=');
+read(x);
+d:=abs(trunc(10*frac(x)));
+write(d);
+end.

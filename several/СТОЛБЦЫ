@@ -1,0 +1,57 @@
+var
+  a: array[1..7, 1..7] of integer;
+  maxx, minn: array[1..7] of integer;
+  i, j, max, min, jmax: integer;
+  
+begin
+  randomize;
+  max := -11;
+  min := 11;
+  writeln('Матрица случайных чисел: ');
+  for i := 1 to 7 do
+    begin
+      maxx[i] := -11;
+      minn[i] := 11;
+    end;
+  for i := 1 to 7 do
+    begin
+      for j := 1 to 7 do
+      begin
+        a[i, j] := random(21)-10;
+        write(a[i, j]:4);
+      if a[i, j] > max
+        then
+          begin
+            max := a[i, j];
+            jmax := j
+          end
+        else
+          if a[i, j] = max
+            then
+              if j > jmax
+                then
+                  begin
+                    max := a[i, j];
+                    jmax := j
+                  end;
+        if a[i, j] < min
+          then min := a[i, j];
+        if a[i, j] > maxx[i]
+          then maxx[i] := a[i, j];
+        if a[i, j] < minn[j]
+          then minn[j] := a[i, j]
+        end;
+        writeln;
+    end;
+  writeln('Максимальное значение в каждой строке');
+  for i := 1 to 7 do
+    write(maxx[i],' ');
+  writeln;
+  writeln('Минимальное значение в каждом столбце');
+  for i := 1 to 7 do
+    write(minn[i],' ');
+  writeln;
+  writeln('Максимум в матрице = ', max);
+  writeln('Минимум в матрице = ', min);
+  writeln('Номер столбца максимального элемента = ', jmax)
+end.

@@ -1,0 +1,47 @@
+var
+k1,k2,k5,k10,k100,k500,sum:integer;
+begin
+  write('Введите сумму: ');
+  readln(sum);
+  k1:=0;k2:=0;k5:=0;k10:=0;k100:=0;k500:=0;
+  while sum<>0 do
+    begin
+      if sum>=500 then
+        begin
+          sum:=sum-500;
+          inc(k500)
+        end;
+      if (sum>=100)and(sum<500) then
+        begin
+          sum:=sum-100;
+          inc(k100)
+        end;
+      if (sum>=10)and(sum<100) then
+        begin
+          sum:=sum-10;
+          inc(k10)
+        end;
+      if (sum>=5)and(sum<10) then
+        begin
+          sum:=sum-5;
+          inc(k5)
+        end;
+      if (sum>=2)and(sum<5) then
+        begin
+          sum:=sum-2;
+          inc(k2)
+        end;
+      if (sum>=1)and(sum<2) then
+        begin
+          sum:=sum-1;
+          inc(k1)
+        end;
+    end;
+  writeln('1 руб : ',k1);
+  writeln('2 руб : ',k2);
+  writeln('5 руб : ',k5);
+  writeln('10 руб : ',k10);
+  writeln('100 руб : ',k100);
+  writeln('500 руб : ',k500);
+  readln;
+end.

@@ -1,0 +1,5 @@
+uses transp;
+begin
+m:=new Parm('легковая ','черная','победа','Пушкига А.С',12.2,4);
+m.transp; 
+end.

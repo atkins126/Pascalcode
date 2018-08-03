@@ -1,0 +1,41 @@
+{В библиотеке Bibl1 создать функции, в 
+которых выполнить обработку некоторого количества строк «N».
+ Подключить библиотеку к программе, в которой вызвать функции: 
+ 1) ввод строки, 
+ 2) замену в строке символов с позиции P на 5 символов,
+ введенных с клавиатуры 
+ 3)вывод результатов копирования на экран.}
+ library my2;
+ var s,s1:string;
+ var c:char;
+ function vvod(var s:string):string;
+ begin
+ readln(s);
+ writeln(s);
+ vvod:=s;
+ end;
+ function zam(var s1:string; var с: char ):string;
+ var i:integer;
+ var c:char;
+ var s2:string;
+  begin
+ readln(s1);
+ readln(c);
+ readln(s2);
+ for I:= 1  to Length(s1) do if s1[i]=c then 
+ Writeln(pos(c,s1));
+ if pos(c,s1)=5 then 
+ begin
+ Insert(s2,s1,pos(c,s1));
+ end;
+ //Writeln(s1);
+ zam:=s1;
+ end;
+ Function vivod(var s1:string):string;
+ begin
+ writeln(s1);
+ vivod:=s1;
+ end;
+ begin
+ end.
+ 

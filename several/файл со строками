@@ -1,0 +1,31 @@
+{Создать текстовый файл, 
+    первая строка которого содержит цифры, 
+    вторая строка пустая, а третья 
+    содержит строчные буквы русского 
+    алфавита, 4-ая строка пустая, 
+    5-я строка содержит 
+    заглавные буквы русского алфавита.}
+    TYPE F=TEXT;
+    VAR FP:F;
+    var s1,s2,s3,s4,s5:string;
+    PROCEDURE SOZD(VAR FP:F; s1,s2,s3,s4,s5:string); 
+    begin
+    s1:='1,2,3,4,5,6,7,8';
+    s2:='';
+    s3:='а,б,в,г,д';
+    s4:='';
+    s5:='a,b,c,d,e,f,g,h';
+    Assign(fp,'my.txt');
+    rewrite(fp);
+    writeln(fp,s1);
+    writeln(fp,s2);
+    writeln(fp,s3);
+    writeln(fp,s4);
+    writeln(fp,s5);
+    close(FP);
+   
+    end;
+    begin
+    SOZD(fp,s1,s2,s3,s4,s5);
+    end.
+    

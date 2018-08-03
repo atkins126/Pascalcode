@@ -1,0 +1,17 @@
+const 
+n=10;
+type mytuype=array[1..n]of integer;
+var a,b,c:mytuype;
+procedure zap(var K:integer; var arr:mytuype);
+var i:byte;
+begin
+Randomize;
+for i:=1 to k do
+begin
+arr[i]:=Random(100);
+Writeln(arr[i]);
+end;
+end;
+begin
+zap(n,a);
+end.

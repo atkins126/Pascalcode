@@ -1,0 +1,5 @@
+uses my;
+begin
+p:= new Planet('земля', 123.4); p.Print;writeln;
+l:= new luna('Луна', 123.4, 'атмосферы нет',   124.7); l.print;
+end.

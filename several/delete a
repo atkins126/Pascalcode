@@ -1,0 +1,17 @@
+var
+  s : string;
+  k, i : byte;
+begin
+  k := 0;
+  writeln('введите строку');
+  readln(s);
+  for i := length(s) downto 1 do
+    if s[i] = 'a' then
+    begin
+      inc(k);
+      delete(s,i,1)
+    end;
+  writeln(s);
+  writeln('количество удаленных букв: ', k);
+  readln
+end.

@@ -1,0 +1,11 @@
+{$reference 'mylib.dll'}
+
+uses ny;
+begin
+
+sozd(fp);
+chten(fp,x);
+poisk(fp,x);
+sred(y);
+pokaz(y);
+end.

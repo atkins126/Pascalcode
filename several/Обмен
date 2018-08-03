@@ -1,0 +1,15 @@
+Var a , b : longint;
+ 
+Procedure Swap(var a , b : longint);
+Var tmp : longint;
+Begin
+    tmp := a;
+    a := b;
+    b := tmp;
+End;
+ 
+Begin
+    ReadLn(a , b);
+    Swap(a , b);
+    WriteLn(a , ' ' , b);
+End.

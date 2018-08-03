@@ -1,0 +1,8 @@
+Const n=14;
+var a:array[1..n] of integer;
+    i,j:integer;
+begin
+     
+     for i:=1 to n do a[i]:=i;
+     for i:=1 to 7 do writeln(a[i],'  ',a[i+7]:10);
+end.

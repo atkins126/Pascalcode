@@ -1,0 +1,17 @@
+
+Var i,j,k,n: integer;
+begin
+  write('n = ');  
+  readln(n);
+  i:=1; k:=0;
+  repeat
+    j:=i;
+    repeat
+      k:=k+1;
+      writeln(i,' ',j,' ',n-i-j);
+      j:=j+1;
+    until j>(n-i) div 2;
+    i:=i+1;
+  until i>n div 3;
+  writeln('всего вариантов: ',k);
+end.

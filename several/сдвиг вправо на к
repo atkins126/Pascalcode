@@ -1,0 +1,40 @@
+    { на примере массива целых чисел }
+    var A: array [1..100] of Integer;
+        p, n, k, i, m: Integer;
+     
+     procedure Vyvod;   { вывод массива на экран }
+     var x: Integer;
+     begin
+      for x:= 1 to n do
+       write(A[x]:4);
+      writeln;
+     end;
+     
+    begin
+     repeat
+      write('Введите размер массива N (N>4): ');
+      readln(n);
+     until n>4;
+     writeln; 
+     for i:= 1 to n do
+      begin
+       A[i]:= random(50)-random(50);
+      end;
+     writeln('== Исходный массив ==');
+     Vyvod;
+     writeln;
+     repeat
+      write('Введите сдвиг K (1<=K<=4): ');
+      readln(k);
+     until (k>=1) and (k<=4);
+     writeln;
+     for m:= 1 to k do
+      begin
+       p:= A[n];
+       for i:= n downto 2 do
+        A[i]:= A[i-1];
+       A[1]:= p;
+      end; 
+     writeln('== Конечный массив ==');
+     Vyvod; 
+    end.

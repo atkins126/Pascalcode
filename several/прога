@@ -1,0 +1,24 @@
+procedure CreateFile(p:string);
+begin
+  var f:=OpenWrite(p);
+  Writeln(f,'В чащах юга жил бы цитрус? Да, но фальшивый экземпляръ!');
+  Writeln(f,'СЪЕШЬ ЖЕ ЕЩЁ ЭТИХ МЯГКИХ ФРАНЦУЗСКИХ БУЛОК, ДА ВЫПЕЙ ЧАЮ');
+  Writeln(f,'ФлегмаТичНая этА веРБлЮдиЦа жует у пОДЪезда засыХающий горький шиповник');
+  Writeln(f,'The quick brown fox jumps over the lazy dog');
+  Writeln(f,'THE FIVE BOXING WIZARDS JUMP QUICKLY');
+  f.Close
+end;
+
+procedure UpFile(p:string);
+begin
+  var a:=ReadAllLines(p);
+  WriteAllLines(p,a.Select(s->UpperCase(s)).ToArray);
+end;
+
+begin
+  var p:=ReadlnString('Введите имя файла (можно, с путём):');
+  CreateFile(p);
+  UpFile(p);
+  // контроль работы
+  ReadAllLines(p).Println(NewLine)
+end.

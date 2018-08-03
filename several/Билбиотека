@@ -1,0 +1,62 @@
+library my;
+const n=10;
+type mx=array [1..n,1..n] of integer;
+var a:mx;
+function massiv(var a:mx ):mx;
+var i,j:integer;
+begin
+randomize;
+for i:=1 to n do
+for j:=1 to n do
+a[i,j]:=Random(100);
+WriteLn('Массив а: ');
+for i:=1 to n do begin
+for j:=1 to n do
+Write(a[i,j]:4);
+WriteLn;
+end;
+end;
+function raz(a:mx):mx;
+var i,j:integer;
+begin
+Write('1: ');
+for j:=n downto 1 do
+Write(a[j,5]:4);
+WriteLn;
+end;
+function dva(a:mx):mx;
+var i,j:integer;
+begin
+writeLn;
+Write('2: ');
+for j:=n downto 1 do
+Write(a[1,j]:4);
+WriteLn;
+end;
+function tri(a:mx):mx;
+var i,j:integer;
+begin
+Write('3: ');
+for j:=1 to n do
+Write(a[2,j]:4);
+writeln;
+end;
+function chetire(a:mx):mx;
+var i,j:integer;
+begin
+Write('4: ');
+for i:=1 to n do
+Write(a[i,1]:4);
+WriteLn;
+end;
+function five(a:mx):mx;
+var i,j:integer;
+begin
+Write('5:');
+for i:=n downto 1 do
+Write(a[i,2]:4);
+WriteLn;
+end;
+begin
+
+end.
