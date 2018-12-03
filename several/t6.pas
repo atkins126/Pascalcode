@@ -20,10 +20,10 @@ begin
     end
   end;
   if K > 0 then begin
-    writeln('Четные элементы в обратном порядке: ');
+    writeln('нечетные элементы в обратном порядке: ');
     for i := K downto 1 do write(' ', b[i]);
-    writeln('Количество четных элементов: ', K)
+    writeln('Количество не четных элементов: ', K)
   end
-  else writeln('В массиве нет четных элементов');
-  readln
+  else writeln('В массиве нет нечетных элементов');
+  readln;
 end.
