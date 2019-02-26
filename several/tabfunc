@@ -1,0 +1,21 @@
+uses crt;
+const b=0.05;
+function f(a,x:real):real;
+begin
+f:=x*ln(2*x/b)*sqr(cos(a));
+end;
+var  x, y, a:real;
+begin
+writeln('----------------------------');
+writeln('      |a=0.3|a=0.05|a=0.015|');
+writeln('----------------------------');
+writeln('|  x  |  y  |   y  |   y   |');
+writeln('----------------------------');
+x:=7.5;
+while x<=12 do
+begin
+ writeln('|',x:5:1,'|',f(0.3,x):5:2,'|',f(0.05,x):6:2,'|',f(0.015,x):7:2,'|');
+ x:=x+0.5;//какой у Вас шаг табуляции?
+end;
+writeln('-----------------------------');
+end.
