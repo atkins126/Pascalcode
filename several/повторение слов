@@ -1,0 +1,17 @@
+var s,ch:string;
+M: integer;
+begin
+
+writeln('Введите предложение: ');
+readln(s);
+writeln('Введите слово для поиска');
+readln(ch);
+M:=0;
+While pos(ch,s)<>0 do
+begin
+inc (m);
+s := Copy (s, pos (ch,s) +1, Length (s));
+end;
+WriteLn ('Слово ' + ch + 'повторяется в тексте ' + m + 'раз');
+ReadLn();
+end.
