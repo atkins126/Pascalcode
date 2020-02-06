@@ -1,0 +1,28 @@
+var
+  a, b, res: integer;
+
+var
+  c, d: integer;
+
+var
+  w: boolean;
+
+begin
+  for a := 1 to 9 do
+  begin
+    Randomize;
+    c := Random(1, 9);
+    d := Random(1, 9);
+    writeln;
+    for b := 1 to 9 do
+    begin
+      res := a * b;
+      if((c * d) = res) then w := true;
+      write(a, '*', b, '=', res:2, ' ');
+      
+    end;
+    
+  end;
+  Writeln(c, ' ', d);
+  Writeln(w);
+end.
